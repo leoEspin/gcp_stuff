@@ -55,6 +55,10 @@ def try_remove(images: list)-> list:
 if __name__ == '__main__':
     arguments = parcero()
     images = get_images(project, arguments.names_list, arguments.hostname)
+    if arguments.names_list is not None:
+        input(f"{len(images)} images will be deleted, and {len(arguments.names_list)} will be kept. Press Enter to continue...")
+    else:
+        input(f"{len(images)} images will be deleted. Press Enter to continue...")
     remaining_img = try_remove(images)
 
     if len(remaining_img) > 0:
