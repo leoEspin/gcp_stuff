@@ -1,0 +1,10 @@
+FROM python:3.9-slim
+
+RUN mkdir -p  /app
+COPY example-gcsfs.py /app
+WORKDIR /app
+
+RUN pip install --upgrade pip
+RUN pip install tensorflow gcsfs requests
+
+ENTRYPOINT ["python", "example-gcsfs.py"]
